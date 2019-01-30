@@ -141,4 +141,4 @@ wg
 # 以上配置文本只是参考文档使用，实际调用另一脚本生成配置
 
 # 一键 WireGuard 多用户配置共享脚本 
-wget -qO- https://git.io/fpnQt | bash
+wget -qO- https://github.com/zhangbincscs/vps_setup/blob/master/Wireguard/wg5clients.sh | bash
