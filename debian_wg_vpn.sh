@@ -65,7 +65,7 @@ PostUp   = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -A FORWARD -o wg0 -j A
 PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -D FORWARD -o wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 
 # 服务端监听端口，可以自行修改
-ListenPort = 9999
+ListenPort = 56789
 
 # 服务端请求域名解析 DNS
 DNS = 8.8.8.8
@@ -106,7 +106,7 @@ PostDown = start  .\route\routes-down.bat
 PublicKey = $(cat spublickey)
 
 # 服务器地址和端口，下面的 X.X.X.X 记得更换为你的服务器公网IP，端口根据服务端配置时的监听端口填写
-Endpoint = $serverip:9009
+Endpoint = $serverip:56789
 
 # 转发流量的IP范围，下面这个代表所有流量都走VPN
 AllowedIPs = 0.0.0.0/0, ::0/0
@@ -149,6 +149,4 @@ wg
 # 以上生成的配置只作为说明文档，实际去调用另一个脚本生成配置
 
 # 一键 WireGuard 多用户配置共享脚本 
-wget -qO- https://git.io/fpnQt | bash
-
-
+wget -qO- https://raw.githubusercontent.com/zhangbincscs/vps_setup/master/Wireguard/wg5clients.sh | bash
